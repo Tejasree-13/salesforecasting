@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sales Form</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+      }
+      .form-container {
+        width: 50%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+      .form-container h1 {
+        text-align: center;
+      }
+      .form-container form {
+        display: flex;
+        flex-direction: column;
+      }
+      .form-container form label,
+      .form-container form input,
+      .form-container form select {
+        margin-bottom: 10px;
+      }
+      .form-container form button {
+        margin-top: 20px;
+        align-self: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>Sales Form</h1>
+      <form method="post">
+        {% csrf_token %} {{ form.as_p }}
+        <button type="submit">Detect Now</button>
+      </form>
+    </div>
+
+    <script>
+      {% if response %}
+      alert({{response}})
+      {% endif %}
+    </script>
+  </body>
+</html>
